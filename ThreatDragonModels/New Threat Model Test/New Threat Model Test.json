@@ -1,0 +1,47 @@
+{
+  "version": "2.5.0",
+  "summary": {
+    "title": "New Threat Model Test",
+    "owner": "ND",
+    "description": "test desc",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "nd1"
+      },
+      {
+        "name": "nd2"
+      },
+      {
+        "name": "nd3"
+      }
+    ],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "New STRIDE diagram",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.5.0",
+        "cells": [],
+        "description": "STRIDE test diagram"
+      },
+      {
+        "id": 1,
+        "title": "New PLOT4ai diagram",
+        "diagramType": "PLOT4ai",
+        "placeholder": "New PLOT4ai diagram description",
+        "thumbnail": "./public/content/images/thumbnail.plot4ai.jpg",
+        "version": "2.5.0",
+        "cells": [],
+        "description": "PLOT4ai test diagram"
+      }
+    ],
+    "diagramTop": 2,
+    "reviewer": "Henry",
+    "threatTop": 0
+  }
+}
