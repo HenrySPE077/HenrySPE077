@@ -15,13 +15,13 @@
     "diagrams": [
       {
         "id": 0,
-        "title": "New STRIDE diagram",
+        "title": "konfirmasi dan penukaran E tiket",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "version": "2.5.0",
         "cells": [],
-        "description": "konfirmasi dan penukaran E tiket"
+        "description": ""
       }
     ],
     "diagramTop": 1,
