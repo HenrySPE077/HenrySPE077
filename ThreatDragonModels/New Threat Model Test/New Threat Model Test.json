@@ -1,47 +1,199 @@
 {
   "version": "2.5.0",
   "summary": {
-    "title": "New Threat Model Test",
-    "owner": "ND",
-    "description": "test desc",
+    "title": "konfirmasi & E tiket",
+    "owner": "Henry",
+    "description": "# 🐉 Thread Dragon v2.5.0 – High-Level System Description (Reporting)\n\n## 1. System Overview\n\n- **System Name**: Thread Dragon v2.5.0  \n- **Purpose**: To process, manage, and report on threaded data streams with high performance and real-time analytics.  \n- **Version**: 2.5.0  \n- **Primary Functionality**:\n  - Thread orchestration  \n  - Real-time data capture  \n  - Analytics and reporting engine  \n  - Custom rule processing  \n\n---\n\n## 2. Key Components Involved in Reporting\n\n| Component         | Description |\n|------------------|-------------|\n| **Ingestion Layer** | Collects threaded events from various sources (APIs, streams, databases) |\n| **Processing Core** | Applies rules, filters, transformations to threaded data |\n| **Data Store**       | Central repository for structured thread data (e.g., PostgreSQL, TimescaleDB) |\n| **Analytics Engine** | Aggregates, computes metrics, prepares data for reporting |\n| **Reporting API**    | RESTful/GraphQL interface to retrieve report data |\n| **UI/Frontend**      | Web-based dashboard or external integration endpoint |\n\n---\n\n## 3. System Workflow (Reporting Focus)\n\n```mermaid\ngraph TD\n    A[Data Sources] --> B[Ingestion Layer]\n    B --> C[Thread Processor]\n    C --> D[Analytics Engine]\n    D --> E[Data Store]\n    E --> F[Reporting API]\n    F --> G[Frontend/UI]\n",
     "id": 0
   },
   "detail": {
     "contributors": [
       {
-        "name": "nd1"
-      },
-      {
-        "name": "nd2"
-      },
-      {
-        "name": "nd3"
+        "name": "henry"
       }
     ],
     "diagrams": [
-      {
+     {
         "id": 0,
-        "title": "New STRIDE diagram",
+        "title": "Deposit Saldo Flow",
         "diagramType": "STRIDE",
-        "placeholder": "New STRIDE diagram description",
+        "placeholder": "Deposit Saldo Flow Diagram",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "version": "2.5.0",
-        "cells": [],
-        "description": "STRIDE test diagram"
-      },
-      {
-        "id": 2,
-        "title": "Deposit Saldo (Top Up via Bank, E-Wallet, Kartu Kredit)",
-        "diagramType": "STRIDE",
-        "placeholder": "New STRIDE diagram description",
-        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
-        "version": "2.5.0",
-        "cells": [],
-        "description": ""
+        "cells": [
+          {
+            "position": { "x": 50, "y": 70 },
+            "size": { "width": 112.5, "height": 60 },
+            "attrs": { "body": { "stroke": "red", "strokeWidth": 2.5 } },
+            "visible": true,
+            "shape": "actor",
+            "id": "actor-user",
+            "data": {
+              "type": "tm.Actor",
+              "name": "User",
+              "threats": [
+                {
+                  "id": "threat-repudiation",
+                  "title": "User menyangkal deposit",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "User bisa menyangkal transaksi deposit karena kurangnya logging yang lengkap.",
+                  "mitigation": "Gunakan logging immutable dan bukti transaksi digital."
+                }
+              ]
+            }
+          },
+          {
+            "position": { "x": 250, "y": 60 },
+            "size": { "width": 120, "height": 70 },
+            "attrs": { "text": { "text": "Input Data Deposit" }, "body": { "stroke": "red", "strokeWidth": 2.5 } },
+            "visible": true,
+            "shape": "process",
+            "id": "process-input-deposit",
+            "data": {
+              "type": "tm.Process",
+              "name": "Input Data Deposit",
+              "threats": [
+                {
+                  "id": "threat-tampering-input",
+                  "title": "Data deposit dimanipulasi",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Data deposit yang dikirim user bisa dimanipulasi.",
+                  "mitigation": "Validasi input dan gunakan HTTPS."
+                }
+              ]
+            }
+          },
+          {
+            "position": { "x": 420, "y": 60 },
+            "size": { "width": 120, "height": 70 },
+            "attrs": { "text": { "text": "Payment Gateway" }, "body": { "stroke": "red", "strokeWidth": 2.5 } },
+            "visible": true,
+            "shape": "process",
+            "id": "process-payment-gateway",
+            "data": {
+              "type": "tm.Process",
+              "name": "Payment Gateway",
+              "threats": [
+                {
+                  "id": "threat-spoofing-gateway",
+                  "title": "Penyerang menyamar sebagai gateway",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Penyerang bisa mencoba menipu sistem dengan transaksi palsu.",
+                  "mitigation": "Gunakan otentikasi gateway dan signature request."
+                }
+              ]
+            }
+          },
+          {
+            "position": { "x": 590, "y": 60 },
+            "size": { "width": 120, "height": 70 },
+            "attrs": { "text": { "text": "Deposit Processor" }, "body": { "stroke": "red", "strokeWidth": 2.5 } },
+            "visible": true,
+            "shape": "process",
+            "id": "process-deposit-processor",
+            "data": {
+              "type": "tm.Process",
+              "name": "Deposit Processor",
+              "threats": [
+                {
+                  "id": "threat-tampering-processing",
+                  "title": "Deposit bisa dimanipulasi saat proses",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Deposit bisa gagal atau diubah saat diproses.",
+                  "mitigation": "Gunakan transaksi database dan validasi server-side."
+                }
+              ]
+            }
+          },
+          {
+            "position": { "x": 760, "y": 60 },
+            "size": { "width": 120, "height": 70 },
+            "attrs": { "text": { "text": "Update Saldo Database" }, "body": { "stroke": "red", "strokeWidth": 2.5 } },
+            "visible": true,
+            "shape": "process",
+            "id": "process-update-saldo",
+            "data": { "type": "tm.Process", "name": "Update Saldo Database" }
+          },
+          {
+            "position": { "x": 920, "y": 60 },
+            "size": { "width": 120, "height": 70 },
+            "attrs": { "text": { "text": "Logging/Audit" }, "body": { "stroke": "red", "strokeWidth": 2.5 } },
+            "visible": true,
+            "shape": "process",
+            "id": "process-logging",
+            "data": { "type": "tm.Process", "name": "Logging/Audit" }
+          },
+          {
+            "position": { "x": 1080, "y": 60 },
+            "size": { "width": 120, "height": 70 },
+            "attrs": { "text": { "text": "Notification System" }, "body": { "stroke": "red", "strokeWidth": 2.5 } },
+            "visible": true,
+            "shape": "process",
+            "id": "process-notification",
+            "data": { "type": "tm.Process", "name": "Notification System" }
+          },
+          {
+            "shape": "flow",
+            "id": "flow1",
+            "source": { "cell": "actor-user" },
+            "target": { "cell": "process-input-deposit" },
+            "attrs": { "line": { "stroke": "#333" } }
+          },
+          {
+            "shape": "flow",
+            "id": "flow2",
+            "source": { "cell": "process-input-deposit" },
+            "target": { "cell": "process-payment-gateway" },
+            "attrs": { "line": { "stroke": "#333" } }
+          },
+          {
+            "shape": "flow",
+            "id": "flow3",
+            "source": { "cell": "process-payment-gateway" },
+            "target": { "cell": "process-deposit-processor" },
+            "attrs": { "line": { "stroke": "#333" } }
+          },
+          {
+            "shape": "flow",
+            "id": "flow4",
+            "source": { "cell": "process-deposit-processor" },
+            "target": { "cell": "process-update-saldo" },
+            "attrs": { "line": { "stroke": "#333" } }
+          },
+          {
+            "shape": "flow",
+            "id": "flow5",
+            "source": { "cell": "process-update-saldo" },
+            "target": { "cell": "process-logging" },
+            "attrs": { "line": { "stroke": "#333" } }
+          },
+          {
+            "shape": "flow",
+            "id": "flow6",
+            "source": { "cell": "process-logging" },
+            "target": { "cell": "process-notification" },
+            "attrs": { "line": { "stroke": "#333" } }
+          },
+          {
+            "shape": "flow",
+            "id": "flow7",
+            "source": { "cell": "process-notification" },
+            "target": { "cell": "actor-user" },
+            "attrs": { "line": { "stroke": "#333" } }
+          }
+        ]
       }
     ],
-    "diagramTop": 3,
-    "reviewer": "Henry",
-    "threatTop": 0
+    "diagramTop": 1,
+    "reviewer": "Rendy",
+    "threatTop": 13
   }
 }
