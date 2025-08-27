@@ -1248,7 +1248,11 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [],
+              "threatFrequency": {
+                "spoofing": 0,
+                "repudiation": 2
+              }
             }
           },
           {
@@ -1265,8 +1269,8 @@
                 "text": "Frontend"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1363,12 +1367,47 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "2fa1e2fe-6b77-4128-83ad-0c08058ac0f9",
+                  "title": "API Rate Limiting",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "sc-15",
+                  "mitigation": "sc-15",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": "6"
+                },
+                {
+                  "id": "214ef677-d45c-4c4c-8af9-ff46d7368ce0",
+                  "title": "Input Sanitization",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "SC-13",
+                  "mitigation": "SC-13",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": "6.5"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1385,8 +1424,8 @@
                 "text": "API\nDeposit\nSaldo"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1483,12 +1522,73 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "0e38fa99-7226-42a9-9189-be3432926be4",
+                  "title": "Secure Communication (TLS 1.3)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "sc-06",
+                  "mitigation": "sc-06",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": "6"
+                },
+                {
+                  "id": "4e340471-2b24-4dba-81f5-3e623c6f2f51",
+                  "title": "Tokenization for Payment Data",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "sc-08",
+                  "mitigation": "sc-08",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": "7.5"
+                },
+                {
+                  "id": "ced1d4f4-7249-4120-a097-addb539bae7b",
+                  "title": "Unique Transaction ID",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Repudiation",
+                  "description": "sc-09",
+                  "mitigation": "sc-09",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": "7"
+                },
+                {
+                  "id": "05a95b3f-8f0f-4cc8-889e-58b853cf1551",
+                  "title": "Role-Based Access Control (RBAC)",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "sc-23",
+                  "mitigation": "sc-23",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": "7.5"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 2,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -1505,11 +1605,13 @@
                 "text": "db transaction\n"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1606,13 +1708,33 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "c64977c1-771a-4435-86bf-df944aa30ec8",
+                  "title": "Data Locking / Transaction Lock",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "sc-21",
+                  "mitigation": "sc-21",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": "7"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -1629,11 +1751,13 @@
                 "text": "db logging/audit"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1730,13 +1854,33 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "df522937-95e6-4f98-aca4-f028eb518518",
+                  "title": "Monitoring & Alerting",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "sc-16",
+                  "mitigation": "sc-16",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": "7.5"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -1753,8 +1897,8 @@
                 "text": "Notification"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1851,12 +1995,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "08ec8f7f-dd96-4f2d-a6b4-6a5c697b2c36",
+                  "title": "Fraud Detection / Anti-Fraud",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "sc-22",
+                  "mitigation": "sc-22",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": "7.5"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -2161,6 +2327,6 @@
     ],
     "diagramTop": 3,
     "reviewer": "Rendy",
-    "threatTop": 13
+    "threatTop": 24
   }
 }
