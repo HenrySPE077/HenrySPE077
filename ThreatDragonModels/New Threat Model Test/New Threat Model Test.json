@@ -15,180 +15,110 @@
     "diagrams": [
      {
         "id": 0,
-        "title": "Deposit Saldo Flow",
+        "title": "Deposit Saldo Parallel Flow",
         "diagramType": "STRIDE",
-        "placeholder": "Deposit Saldo Flow Diagram",
-        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
-        "version": "2.5.0",
         "cells": [
           {
-            "position": { "x": 50, "y": 70 },
-            "size": { "width": 112.5, "height": 60 },
-            "attrs": { "body": { "stroke": "red", "strokeWidth": 2.5 } },
-            "visible": true,
             "shape": "actor",
             "id": "actor-user",
-            "data": {
-              "type": "tm.Actor",
-              "name": "User",
-              "threats": [
-                {
-                  "id": "threat-repudiation",
-                  "title": "User menyangkal deposit",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Repudiation",
-                  "description": "User bisa menyangkal transaksi deposit karena kurangnya logging yang lengkap.",
-                  "mitigation": "Gunakan logging immutable dan bukti transaksi digital."
-                }
-              ]
-            }
+            "position": {"x": 50, "y": 100},
+            "size": {"width": 100, "height": 60},
+            "data": {"type": "tm.Actor", "name": "User"}
           },
           {
-            "position": { "x": 250, "y": 60 },
-            "size": { "width": 120, "height": 70 },
-            "attrs": { "text": { "text": "Input Data Deposit" }, "body": { "stroke": "red", "strokeWidth": 2.5 } },
-            "visible": true,
             "shape": "process",
-            "id": "process-input-deposit",
-            "data": {
-              "type": "tm.Process",
-              "name": "Input Data Deposit",
-              "threats": [
-                {
-                  "id": "threat-tampering-input",
-                  "title": "Data deposit dimanipulasi",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "Tampering",
-                  "description": "Data deposit yang dikirim user bisa dimanipulasi.",
-                  "mitigation": "Validasi input dan gunakan HTTPS."
-                }
-              ]
-            }
+            "id": "process-api-deposito",
+            "position": {"x": 250, "y": 100},
+            "size": {"width": 140, "height": 70},
+            "data": {"type": "tm.Process", "name": "API Deposito"}
           },
           {
-            "position": { "x": 420, "y": 60 },
-            "size": { "width": 120, "height": 70 },
-            "attrs": { "text": { "text": "Payment Gateway" }, "body": { "stroke": "red", "strokeWidth": 2.5 } },
-            "visible": true,
             "shape": "process",
-            "id": "process-payment-gateway",
-            "data": {
-              "type": "tm.Process",
-              "name": "Payment Gateway",
-              "threats": [
-                {
-                  "id": "threat-spoofing-gateway",
-                  "title": "Penyerang menyamar sebagai gateway",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "Spoofing",
-                  "description": "Penyerang bisa mencoba menipu sistem dengan transaksi palsu.",
-                  "mitigation": "Gunakan otentikasi gateway dan signature request."
-                }
-              ]
-            }
+            "id": "process-database",
+            "position": {"x": 450, "y": 50},
+            "size": {"width": 120, "height": 70},
+            "data": {"type": "tm.Process", "name": "Database"}
           },
           {
-            "position": { "x": 590, "y": 60 },
-            "size": { "width": 120, "height": 70 },
-            "attrs": { "text": { "text": "Deposit Processor" }, "body": { "stroke": "red", "strokeWidth": 2.5 } },
-            "visible": true,
-            "shape": "process",
-            "id": "process-deposit-processor",
-            "data": {
-              "type": "tm.Process",
-              "name": "Deposit Processor",
-              "threats": [
-                {
-                  "id": "threat-tampering-processing",
-                  "title": "Deposit bisa dimanipulasi saat proses",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "Tampering",
-                  "description": "Deposit bisa gagal atau diubah saat diproses.",
-                  "mitigation": "Gunakan transaksi database dan validasi server-side."
-                }
-              ]
-            }
-          },
-          {
-            "position": { "x": 760, "y": 60 },
-            "size": { "width": 120, "height": 70 },
-            "attrs": { "text": { "text": "Update Saldo Database" }, "body": { "stroke": "red", "strokeWidth": 2.5 } },
-            "visible": true,
-            "shape": "process",
-            "id": "process-update-saldo",
-            "data": { "type": "tm.Process", "name": "Update Saldo Database" }
-          },
-          {
-            "position": { "x": 920, "y": 60 },
-            "size": { "width": 120, "height": 70 },
-            "attrs": { "text": { "text": "Logging/Audit" }, "body": { "stroke": "red", "strokeWidth": 2.5 } },
-            "visible": true,
             "shape": "process",
             "id": "process-logging",
-            "data": { "type": "tm.Process", "name": "Logging/Audit" }
+            "position": {"x": 450, "y": 150},
+            "size": {"width": 120, "height": 70},
+            "data": {"type": "tm.Process", "name": "Logging/Audit"}
           },
           {
-            "position": { "x": 1080, "y": 60 },
-            "size": { "width": 120, "height": 70 },
-            "attrs": { "text": { "text": "Notification System" }, "body": { "stroke": "red", "strokeWidth": 2.5 } },
-            "visible": true,
             "shape": "process",
             "id": "process-notification",
-            "data": { "type": "tm.Process", "name": "Notification System" }
+            "position": {"x": 450, "y": 250},
+            "size": {"width": 120, "height": 70},
+            "data": {"type": "tm.Process", "name": "Notification System"}
           },
           {
-            "shape": "flow",
-            "id": "flow1",
-            "source": { "cell": "actor-user" },
-            "target": { "cell": "process-input-deposit" },
-            "attrs": { "line": { "stroke": "#333" } }
+            "shape": "actor",
+            "id": "actor-user2",
+            "position": {"x": 650, "y": 250},
+            "size": {"width": 100, "height": 60},
+            "data": {"type": "tm.Actor", "name": "User"}
+          },
+          {"shape": "flow", "id": "flow1", "source": {"cell": "actor-user"}, "target": {"cell": "process-api-deposito"}},
+          {"shape": "flow", "id": "flow2", "source": {"cell": "process-api-deposito"}, "target": {"cell": "process-database"}},
+          {"shape": "flow", "id": "flow3", "source": {"cell": "process-api-deposito"}, "target": {"cell": "process-logging"}},
+          {"shape": "flow", "id": "flow4", "source": {"cell": "process-api-deposito"}, "target": {"cell": "process-notification"}},
+          {"shape": "flow", "id": "flow5", "source": {"cell": "process-notification"}, "target": {"cell": "actor-user2"}}
+        ]
+      },
+      {
+        "id": 1,
+        "title": "Riwayat Deposit Flow",
+        "diagramType": "STRIDE",
+        "cells": [
+          {
+            "shape": "actor",
+            "id": "actor-user",
+            "position": {"x": 50, "y": 100},
+            "size": {"width": 100, "height": 60},
+            "data": {"type": "tm.Actor", "name": "User"}
           },
           {
-            "shape": "flow",
-            "id": "flow2",
-            "source": { "cell": "process-input-deposit" },
-            "target": { "cell": "process-payment-gateway" },
-            "attrs": { "line": { "stroke": "#333" } }
+            "shape": "process",
+            "id": "process-api-riwayat",
+            "position": {"x": 250, "y": 100},
+            "size": {"width": 160, "height": 70},
+            "data": {"type": "tm.Process", "name": "API Riwayat Deposit"}
           },
           {
-            "shape": "flow",
-            "id": "flow3",
-            "source": { "cell": "process-payment-gateway" },
-            "target": { "cell": "process-deposit-processor" },
-            "attrs": { "line": { "stroke": "#333" } }
+            "shape": "process",
+            "id": "process-database",
+            "position": {"x": 450, "y": 50},
+            "size": {"width": 120, "height": 70},
+            "data": {"type": "tm.Process", "name": "Database"}
           },
           {
-            "shape": "flow",
-            "id": "flow4",
-            "source": { "cell": "process-deposit-processor" },
-            "target": { "cell": "process-update-saldo" },
-            "attrs": { "line": { "stroke": "#333" } }
+            "shape": "process",
+            "id": "process-logging",
+            "position": {"x": 450, "y": 150},
+            "size": {"width": 120, "height": 70},
+            "data": {"type": "tm.Process", "name": "Logging/Audit"}
           },
           {
-            "shape": "flow",
-            "id": "flow5",
-            "source": { "cell": "process-update-saldo" },
-            "target": { "cell": "process-logging" },
-            "attrs": { "line": { "stroke": "#333" } }
+            "shape": "process",
+            "id": "process-notification",
+            "position": {"x": 450, "y": 250},
+            "size": {"width": 120, "height": 70},
+            "data": {"type": "tm.Process", "name": "Notification System"}
           },
           {
-            "shape": "flow",
-            "id": "flow6",
-            "source": { "cell": "process-logging" },
-            "target": { "cell": "process-notification" },
-            "attrs": { "line": { "stroke": "#333" } }
+            "shape": "actor",
+            "id": "actor-user2",
+            "position": {"x": 650, "y": 250},
+            "size": {"width": 100, "height": 60},
+            "data": {"type": "tm.Actor", "name": "User"}
           },
-          {
-            "shape": "flow",
-            "id": "flow7",
-            "source": { "cell": "process-notification" },
-            "target": { "cell": "actor-user" },
-            "attrs": { "line": { "stroke": "#333" } }
-          }
+          {"shape": "flow", "id": "flow1", "source": {"cell": "actor-user"}, "target": {"cell": "process-api-riwayat"}},
+          {"shape": "flow", "id": "flow2", "source": {"cell": "process-api-riwayat"}, "target": {"cell": "process-database"}},
+          {"shape": "flow", "id": "flow3", "source": {"cell": "process-api-riwayat"}, "target": {"cell": "process-logging"}},
+          {"shape": "flow", "id": "flow4", "source": {"cell": "process-api-riwayat"}, "target": {"cell": "process-notification"}},
+          {"shape": "flow", "id": "flow5", "source": {"cell": "process-notification"}, "target": {"cell": "actor-user2"}}
         ]
       }
     ],
