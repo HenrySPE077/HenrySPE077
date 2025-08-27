@@ -3,7 +3,7 @@
   "summary": {
     "title": "konfirmasi & E tiket",
     "owner": "Henry",
-    "description": "konfirmasi dan penukaran E tiket",
+    "description": "# 🐉 Thread Dragon v2.5.0 – High-Level System Description (Reporting)\n\n## 1. System Overview\n\n- **System Name**: Thread Dragon v2.5.0  \n- **Purpose**: To process, manage, and report on threaded data streams with high performance and real-time analytics.  \n- **Version**: 2.5.0  \n- **Primary Functionality**:\n  - Thread orchestration  \n  - Real-time data capture  \n  - Analytics and reporting engine  \n  - Custom rule processing  \n\n---\n\n## 2. Key Components Involved in Reporting\n\n| Component         | Description |\n|------------------|-------------|\n| **Ingestion Layer** | Collects threaded events from various sources (APIs, streams, databases) |\n| **Processing Core** | Applies rules, filters, transformations to threaded data |\n| **Data Store**       | Central repository for structured thread data (e.g., PostgreSQL, TimescaleDB) |\n| **Analytics Engine** | Aggregates, computes metrics, prepares data for reporting |\n| **Reporting API**    | RESTful/GraphQL interface to retrieve report data |\n| **UI/Frontend**      | Web-based dashboard or external integration endpoint |\n\n---\n\n## 3. System Workflow (Reporting Focus)\n\n```mermaid\ngraph TD\n    A[Data Sources] --> B[Ingestion Layer]\n    B --> C[Thread Processor]\n    C --> D[Analytics Engine]\n    D --> E[Data Store]\n    E --> F[Reporting API]\n    F --> G[Frontend/UI]\n",
     "id": 0
   },
   "detail": {
