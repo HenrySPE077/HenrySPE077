@@ -1,125 +1,121 @@
 {
   "version": "2.5.0",
   "summary": {
-    "title": "konfirmasi & E tiket",
+    "title": "Deposit & Riwayat Deposit",
     "owner": "Henry",
-    "description": "# 🐉 Thread Dragon v2.5.0 – High-Level System Description (Reporting)\n\n## 1. System Overview\n\n- **System Name**: Thread Dragon v2.5.0  \n- **Purpose**: To process, manage, and report on threaded data streams with high performance and real-time analytics.  \n- **Version**: 2.5.0  \n- **Primary Functionality**:\n  - Thread orchestration  \n  - Real-time data capture  \n  - Analytics and reporting engine  \n  - Custom rule processing  \n\n---\n\n## 2. Key Components Involved in Reporting\n\n| Component         | Description |\n|------------------|-------------|\n| **Ingestion Layer** | Collects threaded events from various sources (APIs, streams, databases) |\n| **Processing Core** | Applies rules, filters, transformations to threaded data |\n| **Data Store**       | Central repository for structured thread data (e.g., PostgreSQL, TimescaleDB) |\n| **Analytics Engine** | Aggregates, computes metrics, prepares data for reporting |\n| **Reporting API**    | RESTful/GraphQL interface to retrieve report data |\n| **UI/Frontend**      | Web-based dashboard or external integration endpoint |\n\n---\n\n## 3. System Workflow (Reporting Focus)\n\n```mermaid\ngraph TD\n    A[Data Sources] --> B[Ingestion Layer]\n    B --> C[Thread Processor]\n    C --> D[Analytics Engine]\n    D --> E[Data Store]\n    E --> F[Reporting API]\n    F --> G[Frontend/UI]\n",
+    "description": "# 🐉 Thread Dragon v2.5.0 – High-Level System Description (Deposit)\n\n## 1. System Overview\n\n- **System Name**: Thread Dragon Deposit v2.5.0  \n- **Purpose**: To process deposit transactions and maintain deposit history.  \n- **Version**: 2.5.0  \n- **Primary Functionality**:\n  - Deposit processing  \n  - Logging and auditing  \n  - Notification system  \n  - Deposit history retrieval\n",
     "id": 0
   },
   "detail": {
     "contributors": [
-      {
-        "name": "henry"
-      }
+      {"name": "henry"}
     ],
     "diagrams": [
-     {
+      {
         "id": 0,
-        "title": "Deposit Saldo Parallel Flow",
+        "title": "Deposit Saldo",
         "diagramType": "STRIDE",
+        "placeholder": "Deposit Saldo Diagram",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.5.0",
         "cells": [
           {
+            "position": {"x": 50,"y": 70},
+            "size": {"width": 112.5,"height": 60},
             "shape": "actor",
             "id": "actor-user",
-            "position": {"x": 50, "y": 100},
-            "size": {"width": 100, "height": 60},
-            "data": {"type": "tm.Actor", "name": "User"}
+            "data": {"type": "tm.Actor","name": "User","hasOpenThreats": true}
           },
           {
+            "position": {"x": 300,"y": 60},
+            "size": {"width": 90,"height": 80},
             "shape": "process",
-            "id": "process-api-deposito",
-            "position": {"x": 250, "y": 100},
-            "size": {"width": 140, "height": 70},
-            "data": {"type": "tm.Process", "name": "API Deposito"}
+            "id": "process-api-deposit",
+            "data": {"type": "tm.Process","name": "API Deposit","hasOpenThreats": true}
           },
           {
+            "position": {"x": 470,"y": 60},
+            "size": {"width": 80,"height": 80},
             "shape": "process",
             "id": "process-database",
-            "position": {"x": 450, "y": 50},
-            "size": {"width": 120, "height": 70},
-            "data": {"type": "tm.Process", "name": "Database"}
+            "data": {"type": "tm.Process","name": "Database","hasOpenThreats": false}
           },
           {
+            "position": {"x": 660,"y": 60},
+            "size": {"width": 80,"height": 80},
             "shape": "process",
             "id": "process-logging",
-            "position": {"x": 450, "y": 150},
-            "size": {"width": 120, "height": 70},
-            "data": {"type": "tm.Process", "name": "Logging/Audit"}
+            "data": {"type": "tm.Process","name": "Logging/Audit","hasOpenThreats": false}
           },
           {
+            "position": {"x": 860,"y": 60},
+            "size": {"width": 80,"height": 80},
             "shape": "process",
             "id": "process-notification",
-            "position": {"x": 450, "y": 250},
-            "size": {"width": 120, "height": 70},
-            "data": {"type": "tm.Process", "name": "Notification System"}
+            "data": {"type": "tm.Process","name": "Notification System","hasOpenThreats": false}
           },
           {
+            "position": {"x": 1056,"y": 70},
+            "size": {"width": 112.5,"height": 60},
             "shape": "actor",
-            "id": "actor-user2",
-            "position": {"x": 650, "y": 250},
-            "size": {"width": 100, "height": 60},
-            "data": {"type": "tm.Actor", "name": "User"}
-          },
-          {"shape": "flow", "id": "flow1", "source": {"cell": "actor-user"}, "target": {"cell": "process-api-deposito"}},
-          {"shape": "flow", "id": "flow2", "source": {"cell": "process-api-deposito"}, "target": {"cell": "process-database"}},
-          {"shape": "flow", "id": "flow3", "source": {"cell": "process-api-deposito"}, "target": {"cell": "process-logging"}},
-          {"shape": "flow", "id": "flow4", "source": {"cell": "process-api-deposito"}, "target": {"cell": "process-notification"}},
-          {"shape": "flow", "id": "flow5", "source": {"cell": "process-notification"}, "target": {"cell": "actor-user2"}}
-        ]
+            "id": "actor-user-out",
+            "data": {"type": "tm.Actor","name": "User","hasOpenThreats": false}
+          }
+        ],
+        "description": ""
       },
       {
         "id": 1,
-        "title": "Riwayat Deposit Flow",
+        "title": "Riwayat Deposit",
         "diagramType": "STRIDE",
+        "placeholder": "Riwayat Deposit Diagram",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.5.0",
         "cells": [
           {
+            "position": {"x": 50,"y": 70},
+            "size": {"width": 112.5,"height": 60},
             "shape": "actor",
-            "id": "actor-user",
-            "position": {"x": 50, "y": 100},
-            "size": {"width": 100, "height": 60},
-            "data": {"type": "tm.Actor", "name": "User"}
+            "id": "actor-user-history",
+            "data": {"type": "tm.Actor","name": "User","hasOpenThreats": true}
           },
           {
+            "position": {"x": 300,"y": 60},
+            "size": {"width": 90,"height": 80},
             "shape": "process",
-            "id": "process-api-riwayat",
-            "position": {"x": 250, "y": 100},
-            "size": {"width": 160, "height": 70},
-            "data": {"type": "tm.Process", "name": "API Riwayat Deposit"}
+            "id": "process-api-history",
+            "data": {"type": "tm.Process","name": "API Riwayat Deposit","hasOpenThreats": true}
           },
           {
+            "position": {"x": 470,"y": 60},
+            "size": {"width": 80,"height": 80},
             "shape": "process",
-            "id": "process-database",
-            "position": {"x": 450, "y": 50},
-            "size": {"width": 120, "height": 70},
-            "data": {"type": "tm.Process", "name": "Database"}
+            "id": "process-db-history",
+            "data": {"type": "tm.Process","name": "Database","hasOpenThreats": false}
           },
           {
+            "position": {"x": 660,"y": 60},
+            "size": {"width": 80,"height": 80},
             "shape": "process",
-            "id": "process-logging",
-            "position": {"x": 450, "y": 150},
-            "size": {"width": 120, "height": 70},
-            "data": {"type": "tm.Process", "name": "Logging/Audit"}
+            "id": "process-logging-history",
+            "data": {"type": "tm.Process","name": "Logging/Audit","hasOpenThreats": false}
           },
           {
+            "position": {"x": 860,"y": 60},
+            "size": {"width": 80,"height": 80},
             "shape": "process",
-            "id": "process-notification",
-            "position": {"x": 450, "y": 250},
-            "size": {"width": 120, "height": 70},
-            "data": {"type": "tm.Process", "name": "Notification System"}
+            "id": "process-notification-history",
+            "data": {"type": "tm.Process","name": "Notification System","hasOpenThreats": false}
           },
           {
+            "position": {"x": 1056,"y": 70},
+            "size": {"width": 112.5,"height": 60},
             "shape": "actor",
-            "id": "actor-user2",
-            "position": {"x": 650, "y": 250},
-            "size": {"width": 100, "height": 60},
-            "data": {"type": "tm.Actor", "name": "User"}
-          },
-          {"shape": "flow", "id": "flow1", "source": {"cell": "actor-user"}, "target": {"cell": "process-api-riwayat"}},
-          {"shape": "flow", "id": "flow2", "source": {"cell": "process-api-riwayat"}, "target": {"cell": "process-database"}},
-          {"shape": "flow", "id": "flow3", "source": {"cell": "process-api-riwayat"}, "target": {"cell": "process-logging"}},
-          {"shape": "flow", "id": "flow4", "source": {"cell": "process-api-riwayat"}, "target": {"cell": "process-notification"}},
-          {"shape": "flow", "id": "flow5", "source": {"cell": "process-notification"}, "target": {"cell": "actor-user2"}}
-        ]
+            "id": "actor-user-out-history",
+            "data": {"type": "tm.Actor","name": "User","hasOpenThreats": false}
+          }
+        ],
+        "description": ""
       }
     ],
     "diagramTop": 1,
