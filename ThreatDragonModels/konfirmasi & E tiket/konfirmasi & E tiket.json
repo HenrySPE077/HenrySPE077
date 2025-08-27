@@ -1124,8 +1124,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "34b2669a-53c6-4918-8402-32aa18a22c3d",
             "zIndex": -1,
+            "id": "34b2669a-53c6-4918-8402-32aa18a22c3d",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Trust Boundary",
